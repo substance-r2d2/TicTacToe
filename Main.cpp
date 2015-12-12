@@ -1,11 +1,17 @@
 #include <iostream>
+#include <string>
 #include "TicTacToe.h"
 
 using namespace std;
 
 void main()
 {
-	TicTacToe game('x','o');
+	string player1, player2;
+	cout << "Enter player 1 symbol : ";
+	cin >> player1;
+	cout << "Enter player 2 symbol : ";
+	cin >> player2;
+	TicTacToe game(player1[0],player2[0]);
 	game.printBoard();
 	cout << "PLAYER 1's turn" << endl;
 
