@@ -5,6 +5,8 @@ using namespace std;
 
 TicTacToe::TicTacToe(char _playerOneSymbol, char _playerTwoSymbol) :playerSymbols{ {_playerOneSymbol},{_playerTwoSymbol} }
 {
+	if (_playerOneSymbol == _playerTwoSymbol)
+		playerSymbols[1] = _playerOneSymbol + 1;
 	currentPlayerTurn = 0;
 	filledPositions = 0;
 	clearBoard();
@@ -77,12 +79,27 @@ bool TicTacToe::checkWin()
 	for (int i = 0; i < 3; ++i)
 	{
 		if (checkRow(i) >= 3)
+		{
+			cout << "**********\n";
+			cout << "PLAYER " << currentPlayerTurn + 1 << " WINS! " << endl;
+			cout << "**********\n";
 			return true;
+		}
 		if (checkColumn(i) >= 3)
+		{
+			cout << "**********\n";
+			cout << "PLAYER " << currentPlayerTurn + 1 << " WINS! " << endl;
+			cout << "**********\n";
 			return true;
+		}
 	}
 	if (checkDiagonal() >= 3)
+	{
+		cout << "**********\n";
+		cout << "PLAYER " << currentPlayerTurn + 1 << " WINS! " << endl;
+		cout << "**********\n";
 		return true;
+	}
 
 	return false;
 }
